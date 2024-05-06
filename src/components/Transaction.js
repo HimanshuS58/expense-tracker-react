@@ -1,0 +1,24 @@
+// use rafce
+
+import React from 'react'
+import { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'  // here we are using double dot(..) instead of single dot(.)
+                                                        // maybe because both components and context are in the same folder 
+                                                        // of 'src'.
+
+const Transaction = ({ transaction }) => {
+
+    const { deleteTransaction } = useContext(GlobalContext);
+
+    const sign = transaction.amount < 0 ? '-' : '+'
+
+  return (
+    <li className = {transaction.amount < 0 ? 'minus' : 'plus'}>
+          {transaction.text} <span> {sign}${Math.abs(transaction.amount)} </span><button 
+          className = "delete-btn"
+          onClick = {() => deleteTransaction(transaction.id)}> x </button>
+        </li>
+  )
+}
+
+export default Transaction
