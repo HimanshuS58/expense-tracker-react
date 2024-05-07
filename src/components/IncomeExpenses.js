@@ -1,10 +1,6 @@
-// use rafce
-
 import React from 'react'
 import { useContext } from 'react'
-import { GlobalContext } from '../context/GlobalState'   // here we are using double dot(..) instead of single dot(.)
-                                                         // maybe because both components and context are in the same folder 
-                                                         // of 'src'.
+import { GlobalContext } from '../context/GlobalState'   
 
 const IncomeExpenses = () => {
 
@@ -14,15 +10,12 @@ const IncomeExpenses = () => {
 
   const income = amounts
                         .filter((item) => item > 0)
-                        .reduce((total, num) => (total += num), 0)  // read reduce() from:  
-                                                                    // **1.> https://www.freecodecamp.org/news/how-to-use-javascript-array-reduce-method/
+                        .reduce((total, num) => (total += num), 0)  
                         .toFixed(2)
 
   const expense = amounts
                          .filter((item) => item < 0)
-                         .reduce((total, num) => (total += num), 0) * -1  // we are multiplying the result with -1 because the 
-                                                                          // return value will be -ve and to make it +ve we are
-                                                                          // using (* -1).
+                         .reduce((total, num) => (total += num), 0) * -1  
                          .toFixed(2)                                                                        
   return (
     <div className = "inc-exp-container">
