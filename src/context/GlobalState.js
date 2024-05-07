@@ -4,8 +4,7 @@ import AppReducer from './AppReducer'
 
 
 // initial state
-const initialState = {                           // this is a dummy list. Once done you can delete all the list inside
-                                                 // the transaction array and make it empty as transaction: []
+const initialState = {                        
 
     transactions: [
           { id: 1, text: 'Flower', amount: -20 },
@@ -16,11 +15,11 @@ const initialState = {                           // this is a dummy list. Once d
 }
 
 
-// Create context <---- see below
+// Create context
 export const GlobalContext = createContext(initialState);
 
 
-// Provider component <---- see below
+// Provider component 
 export const GlobalProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState)     // state --> initialState, dispatch --> AppReducer
@@ -53,20 +52,3 @@ export const GlobalProvider = ({ children }) => {
             {children}
             </GlobalContext.Provider>)
 }
-
-
-
-// "GlobalContext" is created to store the value of initialState transaction using 'createContext()' hook 
-//  which can be provided(using GlobalProvider <-- a function(you can name it anything)) to other components which are in App.js
-
-
-// "GlobalProvider" is created so that the components which are wraped under it(see App.js) can access the content of
-//  this GlobalState.js file (i.e. to access initialState) 
-
-// "children" <-- are the components which are wrapped under GlobalProvider (see App.js)
-
-
-
-// Note: "GlobalContext" is what we are exporting to the other components inside App.js with the help of GlobalProvider function
-//        GlobalContext is exported to the GlobalProvider itself in the return() part of GlobalProvider and from there to various 
-//        other components.
