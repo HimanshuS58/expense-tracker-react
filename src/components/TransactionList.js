@@ -1,15 +1,11 @@
-// use rafce
-
 import React from 'react'
-import { useContext } from 'react' // <--- see below
+import { useContext } from 'react' 
 import Transaction from './Transaction'
-import { GlobalContext } from '../context/GlobalState'  // here we are using double dot(..) instead of single dot(.)
-                                                        // maybe because both components and context are in the same folder 
-                                                        // of 'src'.
+import { GlobalContext } from '../context/GlobalState'  
 
 const TransactionList = () => {
 
-  const { transactions } = useContext(GlobalContext) // here transaction is not variable(hover over it)
+  const { transactions } = useContext(GlobalContext) 
 
 
   return (
@@ -28,7 +24,3 @@ const TransactionList = () => {
 }
 
 export default TransactionList
-
-
-// "useContext" hook is used to pull out anything inside the GlobalContext.
-// in simple words useContext hook is used to manipulate the content inside the GlobalContext
