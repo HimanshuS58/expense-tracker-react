@@ -1,10 +1,6 @@
-// use rafce
-
 import React from 'react'
 import { useContext } from 'react'
-import { GlobalContext } from '../context/GlobalState'  // here we are using double dot(..) instead of single dot(.)
-                                                        // maybe because both components and context are in the same folder 
-                                                        // of 'src'.
+import { GlobalContext } from '../context/GlobalState' 
 
 const Transaction = ({ transaction }) => {
 
