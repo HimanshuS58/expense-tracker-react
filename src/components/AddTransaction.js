@@ -1,11 +1,7 @@
-// use Rafce
-
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { GlobalContext } from '../context/GlobalState' // here we are using double dot(..) instead of single dot(.)
-                                                       // maybe because both components and context are in the same folder 
-                                                       // of 'src'.
+import { GlobalContext } from '../context/GlobalState' 
 
 const AddTransaction = () => {
 
@@ -23,10 +19,7 @@ const AddTransaction = () => {
 
       text,
 
-      amount: +amount        // Here we are passing the amount in this way(i.e. parsing it to a number)
-                             // because if we pass it simply as 'amount' just like we have passed 'text'
-                             // then it will return the value in the form of string rather than a number,
-                             // so in order to convert it into a number we are passing it in this way.
+      amount: +amount        
     }
 
     addTransaction(newTransaction)
